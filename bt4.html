@@ -5,15 +5,70 @@
     <title>Title</title>
 </head>
 <body>
-<label></label>
-<input type="number" id="num1" size="30">
+<label> Nhap do dai </label>
+<input type="number" id="num1" size="30" placeholder="Nhap n">
+<button type="button" id="but1" >Nhap cac phan tu trong mang</button>
+<button type="button" id="but2">Tinh cac so chan</button>
+<button type="button" id="but3">Tim cac so nguyen to</button>
+<p> in cac phan tu trong mang </p>
+
+<p id="result"></p>
+<p>in so luong va tong cac so chan</p>
+<p id="result2"></p>
+<p> in cac so nguyen to</p>
+<p id="result3"></p>
+
 <script>
-  let n= parseInt(prompt('Nhap do dai mang ban muon',''));
-  let arr =[n];
-  for (i=0;i<n;i++) {
+    let button1 = document.getElementById('but1');
+    button1.addEventListener('click',inmang);
+    let button2= document.getElementById('but2');
+    button2.addEventListener('click',sochan);
+    let button3= document.getElementById('but2');
+    button3.addEventListener('click',sont);
+    let arr= [];
+    let data ='';
+    let sum=0;
+    let total=0;
+    function inmang () {
+
+  let n= document.getElementById('num1').value;
+
+  for (let i=0;i<n;i++) {
     arr[i]= parseInt(prompt('Nhap gia cac gia tri cua mang',''));
+
   }
-  document.write(arr);
+  for (let i=0;i<n;i++) {
+        data += arr [i] + '<br>';
+  }
+  document.getElementById('result').innerHTML=data;
+    }
+    function sochan(){
+        for (let i=0;i<arr.length;i++) {
+            if (arr[i]%2==0) {
+                total++;
+                sum+=arr[i];
+            }
+        }
+
+        document.getElementById('result2').innerHTML= 'co: ' +total +' so chan va tong la: ' + sum;
+
+    }
+    function sont () {
+        let data3='';
+        check = true;
+        for ( let i=0 ; i<arr.length; i++) {
+            for (let j=2; j<i ; j++) {
+                if (i%j==0) {
+                    check =false;
+                    break;
+                }
+            }
+            if (check) {
+                data3 += arr[i] + ' la so nguyen to'; }
+
+        } document.getElementById('result3').innerHTML=data3;
+    }
+
 </script>
 </body>
 </html>
