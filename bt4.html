@@ -31,6 +31,8 @@
     let total = 0;
     let data3 = '';
     let sumsnt = 0;
+    let count=0;
+    let check = true;
 
     function inmang() {
 
@@ -60,18 +62,19 @@
 
     function sont() {
 
-        check = true;
+
         for (let i = 0; i < arr.length; i++) {
-            for (let j = 2; j < arr[i] / 2; j++) {
+            for (let j = 2; j < arr[i]; j++) {
                 if (arr[i] % j == 0) {
-                    check = false;
+                    check=false;
                     break;
+
                 }
             }
             if (check) {
                 sumsnt += arr[i];
                 data3 += arr[i] + ' la so nguyen to <br>'
-            }
+            } check=true;
 
         }
         data3 += 'Tong cac so nguyen to la: ' + sumsnt;
