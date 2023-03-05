@@ -23,12 +23,13 @@
     button1.addEventListener('click',inmang);
     let button2= document.getElementById('but2');
     button2.addEventListener('click',sochan);
-    let button3= document.getElementById('but2');
+    let button3= document.getElementById('but3');
     button3.addEventListener('click',sont);
     let arr= [];
     let data ='';
     let sum=0;
     let total=0;
+    let data3='';
     function inmang () {
 
   let n= document.getElementById('num1').value;
@@ -54,19 +55,21 @@
 
     }
     function sont () {
-        let data3='';
+
         check = true;
         for ( let i=0 ; i<arr.length; i++) {
-            for (let j=2; j<i ; j++) {
-                if (i%j==0) {
+            for (let j=2; j<arr[i] ; j++) {
+                if (arr[i]%j==0) {
                     check =false;
                     break;
                 }
             }
             if (check) {
-                data3 += arr[i] + ' la so nguyen to'; }
+                data3+= arr[i] + ' la so nguyen to <br>'  }
 
-        } document.getElementById('result3').innerHTML=data3;
+        }
+        document.getElementById('result3').innerHTML=data3;
+
     }
 
 </script>
